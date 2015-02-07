@@ -30,3 +30,10 @@ _ReSharper*/
 Temp/UnityLockfile
 Temp/
 Library/
+Assembly-CSharp.csproj
+Assembly-CSharp.csproj.orig
+Assembly-CSharp-vs.csproj
+Assembly-CSharp-vs.csproj.orig
+Library/assetDatabase3
+Library/guidmapper
+Library/InspectorExpandedItems.asset
