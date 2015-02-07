@@ -3,7 +3,8 @@ using System.Collections;
 
 public class ButtonController : MonoBehaviour 
 {
-
+	public GameObject wall;
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -21,6 +22,7 @@ public class ButtonController : MonoBehaviour
 		if (other.gameObject.tag == "Player" || other.tag == "Crate")
 		{
 			GetComponent<SpriteRenderer>().enabled = false;
+			wall.SetActive(false);
 		}
 		
 	}
@@ -30,6 +32,7 @@ public class ButtonController : MonoBehaviour
 		if (other.tag == "Player" || other.tag == "Crate")
 		{
 			GetComponent<SpriteRenderer>().enabled = true;
+			wall.SetActive(true);
 		}
 	}
 }
