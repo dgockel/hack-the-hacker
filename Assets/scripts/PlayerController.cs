@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 	private float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 	
+	public float jumpForce = 1;
+	private bool jumping = false;
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -37,6 +40,15 @@ public class PlayerController : MonoBehaviour
 
 	}
 	
+	void Update()
+	{
+		if(grounded && Input.GetKeyDown (KeyCode.Space))
+		{
+			animator.SetBool ("ground", false);    
+			rigidbody2D.AddForce (new Vector2(0, jumpForce));
+		}
+	}
+	  
 	void Flip()
 	{
 		facingRight = !facingRight;
