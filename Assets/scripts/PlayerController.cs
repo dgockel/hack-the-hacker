@@ -15,10 +15,26 @@ public class PlayerController : MonoBehaviour
 	
 	public float jumpForce;
 	
+	private bool _hasCoffee;
+	public float coffeeFactor;
+	
+	public bool hasCoffee
+	{
+		get
+		{
+			return _hasCoffee;
+		}
+		set
+		{
+			_hasCoffee = value;
+		}
+	}
+	
 	// Use this for initialization
 	void Start () 
 	{
 		animator = GetComponent<Animator>();
+		hasCoffee = false;
 	}
 	
 	// Update is called once per frame
@@ -27,9 +43,19 @@ public class PlayerController : MonoBehaviour
 		// Check if player is on the ground
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 		animator.SetBool("ground", grounded);
+		
+		// Check if player has coffee
+		animator.SetBool ("coffee", hasCoffee);
 	
 		float moveX = Input.GetAxis ("Horizontal");
 		float speed = moveX * speedFactor;
+		
+		// If we have coffee, increase speed.
+		if(hasCoffee)
+		{
+			speed *= coffeeFactor;
+		}
+		
 		rigidbody2D.velocity = new Vector2(speed, 0);
 		animator.SetFloat("speed", Mathf.Abs (speed));
 		
@@ -42,10 +68,17 @@ public class PlayerController : MonoBehaviour
 	{
 		if(grounded && Input.GetKeyDown (KeyCode.Space))
 		{
-			animator.SetBool ("ground", false);    
-			rigidbody2D.AddForce (new Vector2(0, jumpForce), ForceMode2D.Force);
+			animator.SetBool ("ground", false);
+			float lJumpForce = jumpForce;
+			if(hasCoffee)
+			{
+				lJumpForce *= coffeeFactor;
+			}
+			
+			rigidbody2D.AddForce (new Vector2(0, lJumpForce), ForceMode2D.Force);
 		}
-		if(Input.GetKeyDown (KeyCode.R))
+		if(Input.GetKeyDown (KeyCode.R)
+		   || !grounded && rigidbody2D.position.y < -6)
 		{
 			Application.LoadLevel(Application.loadedLevel);
 		}
