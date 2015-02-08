@@ -17,6 +17,6 @@ public class ExitController : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		Application.LoadLevel("Intro");
+		Application.LoadLevel("Level 2");
 	}
 }

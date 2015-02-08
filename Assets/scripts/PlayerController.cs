@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	public LayerMask whatIsGround;
 	
 	public float jumpForce;
+	private float jumpCount = 100;
 	
 	private bool _hasCoffee;
 	public float coffeeFactor;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
 	{
 		animator = GetComponent<Animator>();
 		hasCoffee = false;
+		rigidbody2D.interpolation = RigidbodyInterpolation2D.Interpolate;
 	}
 	
 	// Update is called once per frame
@@ -63,20 +65,28 @@ public class PlayerController : MonoBehaviour
 			|| (speed < 0 && facingRight))
 			Flip ();
 	}
-	
+	 
 	void Update()
 	{
-		if(grounded && Input.GetKeyDown (KeyCode.Space))
+		float lJumpForce = jumpForce;
+		if(hasCoffee)
+		{
+			lJumpForce *= coffeeFactor;
+		}
+		
+		if(jumpCount++ <= 4)
+		{
+			rigidbody2D.AddForce (new Vector2(0, lJumpForce));
+		}
+		else if(grounded && Input.GetKeyDown (KeyCode.Space))
 		{
 			animator.SetBool ("ground", false);
-			float lJumpForce = jumpForce;
-			if(hasCoffee)
-			{
-				lJumpForce *= coffeeFactor;
-			}
 			
-			rigidbody2D.AddForce (new Vector2(0, lJumpForce), ForceMode2D.Force);
+			
+			rigidbody2D.AddForce (new Vector2(0, lJumpForce));
+			jumpCount = 0;
 		}
+		
 		if(Input.GetKeyDown (KeyCode.R)
 		   || !grounded && rigidbody2D.position.y < -6)
 		{
