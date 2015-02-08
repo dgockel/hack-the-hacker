@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Threading;
+using UnityEngine.UI;
 
 public class Into : MonoBehaviour {
 
-	public int _state = 0;
-	public bool _faceRight = false;
+	private int _state = 0;
+	private bool _faceRight = false;
 	public int _pacecount = 0;
 
-	private float timeLeft = 1f;
+	private float timeLeft = 7f;
 
 	private Animator _anim;
 	private GameObject _object1;
 	private GameObject _object2;
 	private GameObject _object3;
 	private GameObject _object4;
+	private GameObject _object5;
+	private Text _narrator;
+
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +36,8 @@ public class Into : MonoBehaviour {
 		_object4 = GameObject.FindGameObjectWithTag ("QuestionMark");
 		_object4.SetActive (false);
 
-
+		_object5 = GameObject.FindGameObjectWithTag ("Narrator");
+		_narrator = _object5.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -43,16 +48,18 @@ public class Into : MonoBehaviour {
 
 	void StateMachine()
 	{
+		float StartWaittime = 10f;
 		Vector2 Destination = new Vector2();
 		float move = 2.0f;
 		int maxpace = 1;
 		float waittime = 1f;
-		
+
 
 		switch (_state) 
 		{
 		// walk tot he chalk board.
 		case 0:
+			Debug.Log (timeLeft.ToString());
 			Destination.x = 4.23f;
 			if(_faceRight) Flip(1);
 			Debug.Log(timeLeft.ToString ());
@@ -85,6 +92,9 @@ public class Into : MonoBehaviour {
 
 		// turn the light bulb on
 		case 2:
+			Debug.Log (timeLeft.ToString());
+			_narrator.text = "In the wrong hands, it would spell doom for the future of humanity." +
+				"This equation gave Feynman Jr. ultimate knowledge of everything, except how to properly secure his system.";
 			_anim.SetBool("test", true);
 			_object1.SetActive(true);
 			_object2.SetActive(true);
@@ -92,7 +102,7 @@ public class Into : MonoBehaviour {
 
 			if(countdown())
 			{
-				timeLeft = waittime;
+				timeLeft = waittime*7;
 				Debug.Log("it worked");
 			 	_state = 3;
 			}
@@ -100,6 +110,8 @@ public class Into : MonoBehaviour {
 
 		// Computer gets hacked
 		case 3:
+			Debug.Log (timeLeft.ToString());
+			_narrator.text = "Just as he saved his information onto his computer, his computer indicated that it had been hacked.";
 			_object3.SetActive(true);
 			if(countdown()) 
 			{
@@ -133,6 +145,7 @@ public class Into : MonoBehaviour {
 
 		//stop in front of computer
 		case 6:
+			_narrator.text = "Feynman Junior must now get his data back by hacking the hacker.";
 			rigidbody2D.velocity = new Vector2(0f,0f);
 			_anim.SetBool("test",true);
 			if(countdown())
@@ -152,7 +165,6 @@ public class Into : MonoBehaviour {
 
 			if(rigidbody2D.position.x <= Destination.x)
 			{
-				Debug.Log ("test");
 				Application.LoadLevel("Level 1");
 			}
 			break;
@@ -170,8 +182,10 @@ public class Into : MonoBehaviour {
 	void Flip(int scalevalue)
 	{
 		_faceRight = !_faceRight;
-		Vector3 theScale = transform.localScale;
+		Vector3 theScale = GameObject.FindGameObjectWithTag ("Player").transform.localScale;
 		theScale.x = scalevalue;
-		transform.localScale = theScale;
+		GameObject.FindGameObjectWithTag ("Player").transform.localScale = theScale;
+
+
 	}
 }
