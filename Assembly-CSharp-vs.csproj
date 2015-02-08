@@ -54,11 +54,13 @@
      <Compile Include="Assets\scripts\CoffeeController.cs" />
      <Compile Include="Assets\scripts\ExitButton_MainMenu.cs" />
      <Compile Include="Assets\scripts\ExitController.cs" />
+     <Compile Include="Assets\scripts\Falling_Cat.cs" />
      <Compile Include="Assets\scripts\FinalButtonController.cs" />
      <Compile Include="Assets\scripts\Into.cs" />
      <Compile Include="Assets\scripts\KittyController.cs" />
      <Compile Include="Assets\scripts\LaunchButtonController.cs" />
      <Compile Include="Assets\scripts\LaunchController.cs" />
+     <Compile Include="Assets\scripts\MovingPlatform.cs" />
      <Compile Include="Assets\scripts\PlayButton_MainMenu.cs" />
      <Compile Include="Assets\scripts\PlayerController.cs" />
      <Compile Include="Assets\scripts\Scrolling_Credits.cs" />
