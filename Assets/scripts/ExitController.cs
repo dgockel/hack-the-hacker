@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ExitController : MonoBehaviour {
 
+	public string sceneToLoad;
 	// Use this for initialization
 	void Start () 
 	{
@@ -17,6 +18,6 @@ public class ExitController : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		Application.LoadLevel("Level 2");
+		Application.LoadLevel(sceneToLoad);
 	}
 }

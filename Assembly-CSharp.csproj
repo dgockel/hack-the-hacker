@@ -49,10 +49,14 @@
      <Compile Include="Assets\scripts\BerryController.cs" />
      <Compile Include="Assets\scripts\ButtonController.cs" />
      <Compile Include="Assets\scripts\CoffeeController.cs" />
+     <Compile Include="Assets\scripts\ExitButton_MainMenu.cs" />
      <Compile Include="Assets\scripts\ExitController.cs" />
+     <Compile Include="Assets\scripts\FinalButtonController.cs" />
      <Compile Include="Assets\scripts\Into.cs" />
      <Compile Include="Assets\scripts\KittyController.cs" />
+     <Compile Include="Assets\scripts\PlayButton_MainMenu.cs" />
      <Compile Include="Assets\scripts\PlayerController.cs" />
+     <Compile Include="Assets\scripts\SpringController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BerryController : MonoBehaviour 
 {
 	private Animator animator;
 	
-	private enum BerryState { Idle, Walking, Throwing, Wahhh, Throw };
+	private enum BerryState { Idle, Walking, Throwing, Wahhh, Throw, End };
 	private BerryState mState = BerryState.Idle;
 	
 	public int ThrowingCount;
@@ -15,11 +16,20 @@ public class BerryController : MonoBehaviour
 	private int throwingCount;
 	private int throwCount;
 	
+	private AudioSource audio;
+	
 	public float walkSpeed;
 	
 	public GameObject kitty;
 	
+	public GameObject camera;
+	
+	public GameObject spring;
+	public SpringController springController;
+	
 	private Random rng;
+	
+	private List<int> buttons;
 	
 	private bool gameEnd = false;
 	public bool GameEnd
@@ -34,6 +44,30 @@ public class BerryController : MonoBehaviour
 		}
 	}
 	
+	public void AddButton(int id)
+	{
+		if(!buttons.Contains (id))
+		{
+			buttons.Add (id);
+		}
+		if(buttons.Count == 3)
+		{
+			mState = BerryState.Wahhh;
+			UpdateState();
+			return;
+		}
+		Debug.Log (buttons.Count);
+	}
+	
+	public void RemoveButton(int id)
+	{
+		if(buttons.Contains(id))
+		{
+			buttons.Remove(id);
+		}
+		Debug.Log (buttons.Count);
+	}
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -41,12 +75,16 @@ public class BerryController : MonoBehaviour
 		throwingCount = ThrowingCount;
 		throwCount = ThrowCount;
 		rng = new Random();
+		buttons = new List<int>();
+		audio = gameObject.GetComponent<AudioSource>();
+		springController = spring.gameObject.GetComponent<SpringController>();
 		Flip ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		
 		switch(mState)
 		{
 			case BerryState.Idle:
@@ -63,6 +101,8 @@ public class BerryController : MonoBehaviour
 				break;
 			case BerryState.Throw:
 				Throw ();
+				break;
+			default:
 				break;
 		}
 	}
@@ -107,14 +147,17 @@ public class BerryController : MonoBehaviour
 			GameObject cat = (GameObject)Instantiate (kitty);
 			cat.SetActive(true);
 			cat.rigidbody2D.velocity = new Vector2(Random.Range (-25, 0), Random.Range (-1, 3));
-			cat.rigidbody2D.angularVelocity = 360;
-			
 		}
 	}
 	
 	private void Wahhh()
 	{
+		springController.ExtendSpring();
 		
+		AudioSource.PlayClipAtPoint(audio.clip, new Vector3(0, 0, 0));
+		gameObject.rigidbody2D.fixedAngle = false;
+		gameObject.rigidbody2D.velocity = new Vector2(-22, 0);
+		mState = BerryState.End;
 	}
 	
 	private void UpdateState()
