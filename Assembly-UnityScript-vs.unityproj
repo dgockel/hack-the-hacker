@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{B2D59897-168F-ECEB-25E2-CD9F247C9CB4}</ProjectGuid>
+	<ProjectGuid>{AB4C88CA-1274-0CAC-4B86-CDD0476AD576}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,9 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scripts\ButtonController.cs" />
-     <Compile Include="Assets\scripts\Into.cs" />
-     <Compile Include="Assets\scripts\PlayerController.cs" />
+     <Compile Include="Assets\Sprites\Objects\unity 2d collider image change - Google Search_files\dn.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
