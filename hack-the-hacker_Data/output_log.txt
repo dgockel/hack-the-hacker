@@ -1,0 +1,50 @@
+Initialize engine version: 4.6.2f1 (bd99309c2ad7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 650 Ti BOOST (ID=0x11c2)
+    Vendor:   NVIDIA
+    VRAM:     1989 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\git\Hack the Hacker\hack-the-hacker_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\git\Hack the Hacker\hack-the-hacker_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\git\Hack the Hacker\hack-the-hacker_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\git\Hack the Hacker\hack-the-hacker_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\git\Hack the Hacker\hack-the-hacker_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\git\Hack the Hacker\hack-the-hacker_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.099 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\git\Hack the Hacker\hack-the-hacker_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\git\Hack the Hacker\hack-the-hacker_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 8.780834 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 193.
+Total: 4.844608 ms (FindLiveObjects: 0.022086 ms CreateObjectMapping: 0.032563 ms MarkObjects: 0.445412 ms  DeleteObjects: 2.003083 ms)
+
+UnloadTime: 1.082525 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 227.
+Total: 6.706960 ms (FindLiveObjects: 0.024068 ms CreateObjectMapping: 0.024635 ms MarkObjects: 0.278630 ms  DeleteObjects: 4.137837 ms)
+
+UnloadTime: 0.545085 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 247.
+Total: 1.380128 ms (FindLiveObjects: 0.013308 ms CreateObjectMapping: 0.014724 ms MarkObjects: 0.164233 ms  DeleteObjects: 0.004247 ms)
+
+UnloadTime: 0.815504 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 247.
+Total: 2.569972 ms (FindLiveObjects: 0.022652 ms CreateObjectMapping: 0.024918 ms MarkObjects: 0.278630 ms  DeleteObjects: 0.008494 ms)
+
+UnloadTime: 0.830512 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 247.
+Total: 2.017241 ms (FindLiveObjects: 0.024918 ms CreateObjectMapping: 0.025201 ms MarkObjects: 0.290523 ms  DeleteObjects: 0.007645 ms)
+
