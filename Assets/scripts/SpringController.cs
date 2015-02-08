@@ -4,6 +4,7 @@ using System.Collections;
 public class SpringController : MonoBehaviour 
 {
 	private Animator animator;
+	
 	public void ExtendSpring()
 	{
 		animator.SetBool ("activated", true);
