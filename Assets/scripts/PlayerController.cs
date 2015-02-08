@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 	private float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 	
+	public float baseSpeed;
+	
 	public float jumpForce;
 	private float jumpCount = 100;
 	
@@ -50,7 +52,18 @@ public class PlayerController : MonoBehaviour
 		animator.SetBool ("coffee", hasCoffee);
 	
 		float moveX = Input.GetAxis ("Horizontal");
-		float speed = moveX * speedFactor;
+		//float speed = moveX * speedFactor;
+		float speed = 0;
+		if(Input.GetKey (KeyCode.RightArrow)
+			|| Input.GetKey(KeyCode.D))
+		{
+			speed = baseSpeed;
+		}
+		else if(Input.GetKey (KeyCode.LeftArrow)
+		        || Input.GetKey(KeyCode.A))
+		{
+			speed = -baseSpeed;
+		}
 		
 		// If we have coffee, increase speed.
 		if(hasCoffee)
