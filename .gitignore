@@ -44,3 +44,5 @@ Library/AssetServerCacheV3
 Library/guidmapper
 Library/InspectorExpandedItems.asset
 ProjectSettings/TagManager.asset
+Assembly-CSharp.csproj
+Assembly-CSharp-vs.csproj

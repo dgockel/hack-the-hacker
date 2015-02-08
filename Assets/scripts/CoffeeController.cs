@@ -4,11 +4,12 @@ using System.Collections;
 public class CoffeeController : MonoBehaviour 
 {
 	public GameObject player;
+	private AudioSource audio;
 
 	// Use this for initialization
 	void Start () 
 	{
-	
+		audio = gameObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -22,7 +23,8 @@ public class CoffeeController : MonoBehaviour
 		if(collider.gameObject.tag == "Player")
 		{
 			collider.gameObject.GetComponent<PlayerController>().hasCoffee = true;
-			gameObject.SetActive(false);
+			AudioSource.PlayClipAtPoint(audio.clip, new Vector3(0, 0, 0));
+			gameObject.SetActive (false);
 		}
 	}
 }
