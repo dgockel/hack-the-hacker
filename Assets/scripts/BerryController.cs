@@ -11,6 +11,7 @@ public class BerryController : MonoBehaviour
 	
 	public int ThrowingCount;
 	public int ThrowCount;
+	public int EndDelay;
 	
 	private int idleCount = 50;
 	private int throwingCount;
@@ -102,7 +103,8 @@ public class BerryController : MonoBehaviour
 			case BerryState.Throw:
 				Throw ();
 				break;
-			default:
+			case BerryState.End:
+				End();
 				break;
 		}
 	}
@@ -164,6 +166,15 @@ public class BerryController : MonoBehaviour
 	{
 		animator.SetInteger("State", (int)mState);
 	}
+	
+	private void End()
+	{
+		if(EndDelay-- <= 0)
+		{
+			Destroy(GameObject.FindGameObjectWithTag ("FinalMusic"));
+			Application.LoadLevel("Credits");
+		}
+	}	
 	
 	void Flip()
 	{
